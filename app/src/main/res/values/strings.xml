@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">MoviesApp</string>
+    <string name="title_activity_detail_item">DetailItemActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="toolbar_title">Hi Bagas!</string>
+    <string name="toolbar_description">Explore Movies and TvShows Now</string>
+
+    <string name="tvtitle">Judul Film</string>
+    <string name="tvhoureps">Jam atau Episode</string>
+
+    <string name="movie">Movie</string>
+    <string name="tvshow">TV Show</string>
+    <string name="detail_genre">Genre</string>
+    <string name="detail_overview">Overview</string>
+    <string name="detail_stars">Stars</string>
+    <string name="detail_director">Director</string>
+    <string name="detail_hour">Hour</string>
+    <string name="detail_seasons">Season</string>
+
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel magna quis augue suscipit varius ut sed quam. Vivamus feugiat sapien at sapien tincidunt, et pellentesque nisl mattis. Nunc id efficitur quam. Fusce viverra elementum ipsum. Pellentesque ornare, nisi id auctor accumsan, ipsum erat scelerisque turpis, sit amet varius diam elit eget nibh.</string>
+    <string name="btn_trailer_text">Watch Trailer</string>
+
+    <string name="copyright_splashscreen">By Bagas P.I</string>
+    <string name="splash_title">CINEMA</string>
+    <string name="splash_subtitle">Enjoy Your Time</string>
+
+    <string name="share_text">Find your favourite movies and tvshows now!</string>
+</resources>
