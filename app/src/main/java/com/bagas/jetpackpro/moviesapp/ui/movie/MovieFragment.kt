@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.bagas.jetpackpro.moviesapp.R
 import com.bagas.jetpackpro.moviesapp.databinding.FragmentMovieBinding
+import com.bagas.jetpackpro.moviesapp.viewmodel.ViewModelFactory
 
 class MovieFragment : Fragment() {
 
@@ -28,12 +27,17 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val movies = viewModel.getMovies()
+
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
             val movieAdapter = MovieAdapter()
-            movieAdapter.setMovies(movies)
 
+            viewModel.getMovies().observe(viewLifecycleOwner, {movies ->
+                fragmentMovieBinding.progressBar.visibility = View.GONE
+                movieAdapter.setMovies(movies)
+                movieAdapter.notifyDataSetChanged()
+            })
             with(fragmentMovieBinding.rvMovies) {
                 layoutManager = GridLayoutManager(context,2)
                 setHasFixedSize(true)

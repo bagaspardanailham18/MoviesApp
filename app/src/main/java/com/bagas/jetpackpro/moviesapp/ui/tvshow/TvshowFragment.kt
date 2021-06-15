@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.bagas.jetpackpro.moviesapp.R
 import com.bagas.jetpackpro.moviesapp.databinding.FragmentTvshowBinding
+import com.bagas.jetpackpro.moviesapp.viewmodel.ViewModelFactory
 
 class TvshowFragment : Fragment() {
 
@@ -28,11 +27,17 @@ class TvshowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvshowViewModel::class.java]
-            val tvshow = viewModel.getTvshow()
+
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvshowViewModel::class.java]
 
             val tvShowAdapter = TvshowAdapter()
-            tvShowAdapter.setTvshow(tvshow)
+
+            viewModel.getTvshow().observe(viewLifecycleOwner, {tvshow ->
+                fragmentTvshowBinding.progressBar.visibility = View.GONE
+                tvShowAdapter.setTvshow(tvshow)
+                tvShowAdapter.notifyDataSetChanged()
+            })
 
             with(fragmentTvshowBinding.rvTvshow) {
                 layoutManager = GridLayoutManager(context, 2)

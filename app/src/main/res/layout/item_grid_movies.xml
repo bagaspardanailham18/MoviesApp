@@ -46,7 +46,7 @@
             tools:text="@string/tvtitle" />
 
         <TextView
-            android:id="@+id/rv_hour"
+            android:id="@+id/rv_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -66,11 +66,11 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_baseline_star_24"
-            app:layout_constraintBottom_toBottomOf="@+id/rv_hour"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_year"
             app:layout_constraintEnd_toStartOf="@+id/tv_rates"
             app:layout_constraintHorizontal_bias="0.963"
-            app:layout_constraintStart_toEndOf="@+id/rv_hour"
-            app:layout_constraintTop_toTopOf="@+id/rv_hour"
+            app:layout_constraintStart_toEndOf="@+id/rv_year"
+            app:layout_constraintTop_toTopOf="@+id/rv_year"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -79,17 +79,15 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/rv_hour"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_year"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.868"
-            app:layout_constraintStart_toEndOf="@+id/rv_hour"
-            app:layout_constraintTop_toTopOf="@+id/rv_hour"
+            app:layout_constraintStart_toEndOf="@+id/rv_year"
+            app:layout_constraintTop_toTopOf="@+id/rv_year"
             app:layout_constraintVertical_bias="1.0"
             tools:text="rates" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </androidx.cardview.widget.CardView>

@@ -4,11 +4,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bagas.jetpackpro.moviesapp.BuildConfig.IMAGE_URL
 import com.bagas.jetpackpro.moviesapp.R
-import com.bagas.jetpackpro.moviesapp.data.MovieEntity
+import com.bagas.jetpackpro.moviesapp.data.source.local.MovieEntity
 import com.bagas.jetpackpro.moviesapp.databinding.ItemGridMoviesBinding
-import com.bagas.jetpackpro.moviesapp.databinding.ItemRowMoviesBinding
-import com.bagas.jetpackpro.moviesapp.ui.detail.DetailItemActivity
+import com.bagas.jetpackpro.moviesapp.ui.detail.movie.DetailMovieActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -41,19 +41,22 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         fun bind(movie: MovieEntity) {
             with(binding) {
                 rvTitle.text = movie.title
-                rvHour.text = movie.hour
-                tvRates.text = movie.rating
-                itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailItemActivity::class.java)
-                    intent.putExtra(DetailItemActivity.EXTRA_MOVIE, movie.movieId)
-                    itemView.context.startActivity(intent)
-                }
+                tvRates.text = movie.voteAverage.toString()
+                rvYear.text = movie.realeaseDate
+
                 Glide.with(itemView.context)
-                    .load(movie.poster)
+                    .asBitmap()
+                    .load(IMAGE_URL + movie.posterPath)
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
                     .error(R.drawable.ic_error)
                         .centerCrop()
                     .into(rvPoster)
+
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
+                    intent.putExtra(DetailMovieActivity.EXTRA_ID, movie.id)
+                    itemView.context.startActivity(intent)
+                }
             }
         }
     }

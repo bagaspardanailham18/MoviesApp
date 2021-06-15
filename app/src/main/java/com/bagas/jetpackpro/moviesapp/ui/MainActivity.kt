@@ -1,9 +1,13 @@
 package com.bagas.jetpackpro.moviesapp.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.bagas.jetpackpro.moviesapp.R
 import com.bagas.jetpackpro.moviesapp.databinding.ActivityMainBinding
+import com.bagas.jetpackpro.moviesapp.ui.favorite.FavoriteActivity
 import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.custom_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val imgprofile = binding.imgProfile
 
@@ -26,5 +34,21 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager.adapter = sectionPagerAdapter
         binding.tabs.setupWithViewPager(binding.viewPager)
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_favorite -> {
+                val intent = Intent(this, FavoriteActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

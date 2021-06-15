@@ -4,63 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
     tools:context=".ui.MainActivity">
+
+    <include layout="@layout/custom_toolbar"/>
     
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/coolBlack"
+        android:layout_below="@+id/custom_toolbar"
+        android:padding="16dp"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize">
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5dp">
 
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/coolBlack"
-                android:minHeight="?attr/actionBarSize"
-                app:theme="@style/Theme.AppCompat"
-                android:padding="16dp">
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/Toolbar"
+                    android:text="@string/toolbar_title"
+                    android:fontFamily="@font/segoe_ui_bold"/>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="5dp">
+                <TextView
+                    android:id="@+id/subtitle"
+                    style="@style/Toolbar.Sub"
+                    android:text="@string/toolbar_description"
+                    android:fontFamily="@font/roboto_light"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/toolbar_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/title"
-                            style="@style/Toolbar"
-                            android:text="@string/toolbar_title"
-                            android:fontFamily="@font/segoe_ui_bold"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@android:color/darker_gray"
+                android:layout_alignParentEnd="true"/>
 
-                        <TextView
-                            android:id="@+id/subtitle"
-                            style="@style/Toolbar.Sub"
-                            android:text="@string/toolbar_description"
-                            android:fontFamily="@font/roboto_light"
-                            android:layout_marginTop="10dp"/>
-                    </LinearLayout>
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/img_profile"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@android:color/darker_gray"
-                        android:layout_alignParentEnd="true"/>
-
-                </RelativeLayout>
-
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

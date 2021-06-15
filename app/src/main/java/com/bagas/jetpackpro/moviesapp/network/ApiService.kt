@@ -1,9 +1,9 @@
 package com.bagas.jetpackpro.moviesapp.network
 
-import com.bagas.jetpackpro.moviesapp.data.remote.MovieDetailResponse
-import com.bagas.jetpackpro.moviesapp.data.remote.MovieResponse
-import com.bagas.jetpackpro.moviesapp.data.remote.TvshowDetailResponse
-import com.bagas.jetpackpro.moviesapp.data.remote.TvshowResponse
+import com.bagas.jetpackpro.moviesapp.data.source.remote.MovieDetailResponse
+import com.bagas.jetpackpro.moviesapp.data.source.remote.MovieResponse
+import com.bagas.jetpackpro.moviesapp.data.source.remote.TvshowDetailResponse
+import com.bagas.jetpackpro.moviesapp.data.source.remote.TvshowResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

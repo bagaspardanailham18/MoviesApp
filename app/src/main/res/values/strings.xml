@@ -22,10 +22,14 @@
     <string name="tvshow">TV Show</string>
     <string name="detail_genre">Genre</string>
     <string name="detail_overview">Overview</string>
-    <string name="detail_stars">Stars</string>
-    <string name="detail_director">Director</string>
-    <string name="detail_hour">Hour</string>
+    <string name="detail_lang">Language</string>
+    <string name="detail_runtime">Runtime</string>
     <string name="detail_seasons">Season</string>
+    <string name="detail_runtime_episodes">Runtime Episodes</string>
+
+    <string name="tv_runtime">%1$s minutes</string>
+    <string name="tv_runtime_episodes">%1$s episodes</string>
+    <string name="tv_seasons">%1$s seasons</string>
 
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel magna quis augue suscipit varius ut sed quam. Vivamus feugiat sapien at sapien tincidunt, et pellentesque nisl mattis. Nunc id efficitur quam. Fusce viverra elementum ipsum. Pellentesque ornare, nisi id auctor accumsan, ipsum erat scelerisque turpis, sit amet varius diam elit eget nibh.</string>
     <string name="btn_trailer_text">Watch Trailer</string>
@@ -35,4 +39,7 @@
     <string name="splash_subtitle">Enjoy Your Time</string>
 
     <string name="share_text">Find your favourite movies and tvshows now!</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_setting">Setting</string>
+    <string name="title_favorite">Favorite</string>
 </resources>

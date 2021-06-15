@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailItemActivity">
+    tools:context=".ui.detail.movie.DetailMovieActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -49,6 +49,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/schroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#212429"
@@ -128,79 +129,40 @@
                 android:fontFamily="@font/roboto_thin"/>
 
             <LinearLayout
-                android:id="@+id/layout_hour"
+                android:id="@+id/layout_runtime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/hour_title"
+                    android:id="@+id/runtime_title"
                     style="@style/Detail.Title"
-                    android:text="@string/detail_hour"
+                    android:text="@string/detail_runtime"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:layout_marginBottom="5dp"/>
 
                 <TextView
-                    android:id="@+id/tv_hour"
+                    android:id="@+id/tv_runtime"
                     style="@style/Detail"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="14dp"
-                    tools:text="Hour"
-                    android:fontFamily="@font/roboto_thin"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_seasons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/seasons_title"
-                    style="@style/Detail.Title"
-                    android:text="@string/detail_seasons"
-                    android:fontFamily="@font/segoe_ui_bold"
-                    android:layout_marginBottom="5dp"/>
-
-                <TextView
-                    android:id="@+id/tv_seasons"
-                    style="@style/Detail"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="14dp"
-                    tools:text="Seasons"
+                    tools:text="Minutes"
                     android:fontFamily="@font/roboto_thin"/>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/stars_title"
+                android:id="@+id/lang_title"
                 style="@style/Detail.Title"
-                android:text="@string/detail_stars"
+                android:text="@string/detail_lang"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:layout_marginBottom="5dp"/>
 
             <TextView
-                android:id="@+id/tv_stars"
+                android:id="@+id/tv_lang"
                 style="@style/Detail"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="14dp"
-                tools:text="cast"
-                android:fontFamily="@font/roboto_thin"/>
-
-            <TextView
-                android:id="@+id/director_title"
-                style="@style/Detail.Title"
-                android:text="@string/detail_director"
-                android:fontFamily="@font/segoe_ui_bold"
-                android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:id="@+id/tv_director"
-                style="@style/Detail"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="14dp"
-                tools:text="Director"
+                tools:text="lang"
                 android:fontFamily="@font/roboto_thin"/>
 
             <Button
@@ -209,6 +171,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="#D51153"
+                android:enabled="false"
                 android:text="@string/btn_trailer_text"/>
 
         </LinearLayout>
@@ -243,17 +206,47 @@
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:baselineAlignBottom="false"-->
+<!--        android:clickable="false"-->
+<!--        android:src="@drawable/ic_play"-->
+<!--        app:fabSize="normal"-->
+<!--        app:layout_anchor="@id/appbar"-->
+<!--        app:layout_anchorGravity="end|bottom"-->
+<!--        android:layout_marginEnd="30dp"-->
+<!--        app:backgroundTint="@color/material_on_primary_emphasis_high_type"-->
+<!--        android:focusable="true" />-->
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:baselineAlignBottom="false"
-        android:clickable="true"
-        android:src="@drawable/ic_play"
-        app:fabSize="normal"
+        android:layout_margin="16dp"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="end|bottom"
-        android:layout_marginEnd="30dp"
-        app:backgroundTint="@color/material_on_primary_emphasis_high_type"
-        android:focusable="true" />
+        app:layout_anchorGravity="bottom|end">
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_toggle_btn" />
+
+    </FrameLayout>
+
+    <ToggleButton
+        android:id="@+id/btn_toggle_fav"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/toggle_favorite"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_anchor="@+id/frameLayout"
+        app:layout_anchorGravity="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
